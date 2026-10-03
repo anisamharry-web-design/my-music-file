@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    background: #F8F1E7;
+    font-family: Arial, sans-serif;
+}
+
+.music-player {
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 22px;
+    background: #7B002C;
+    border-radius: 18px;
+    text-align: center;
+    color: #F8F1E7;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.music-icon {
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #D4A017;
+    margin-bottom: 18px;
+}
+
+button {
+    border: 2px solid #D4A017;
+    background: #D4A017;
+    color: #7B002C;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.volume {
+    margin-top: 15px;
+}
+
+input[type="range"] {
+    width: 150px;
+    accent-color: #D4A017;
+}
+</style>
+</head>
+
+<body>
+
+<div class="music-player">
+
+    <div class="music-icon">🎵</div>
+
+    <div class="title">
+        Our Wedding Song
+    </div>
+
+    <div class="subtitle">
+        Ester & Harry • December 25, 2027
+    </div>
+
+    <button onclick="toggleMusic()" id="playButton">
+        ▶ Play Music
+    </button>
+
+    <div class="volume">
+        🔊
+        <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.7"
+            onchange="changeVolume(this.value)"
+        >
+    </div>
+
+</div>
+
+<audio id="weddingMusic" loop>
+    <source src="andriig-instrumental-instrumental-music-473810.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const music = document.getElementById("weddingMusic");
+const button = document.getElementById("playButton");
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play();
+
+        button.innerHTML = "⏸ Pause Music";
+
+    } else {
+
+        music.pause();
+
+        button.innerHTML = "▶ Play Music";
+
+    }
+
+}
+
+function changeVolume(value) {
+
+    music.volume = value;
+
+}
+
+</script>
+
+</body>
+  </html>
